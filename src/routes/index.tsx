@@ -2,8 +2,18 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import maskedHero from "@/assets/harshit-masked.jpg";
 import harshitAsset from "@/assets/harshit-real.png.asset.json";
+import emailsviaAsset from "@/assets/emailsvia.png.asset.json";
+import pujapathsewaAsset from "@/assets/pujapathsewa.png.asset.json";
+import bubAiAsset from "@/assets/bub-ai.png.asset.json";
+import mutanexAsset from "@/assets/mutanex.png.asset.json";
 
 const realHero = harshitAsset.url;
+const BUILD_IMAGES: Record<string, string> = {
+  EMAILSVIA_SCREENSHOT: emailsviaAsset.url,
+  PUJAPATHSEVA_SCREENSHOT: pujapathsewaAsset.url,
+  BUB_AI_SCREENSHOT: bubAiAsset.url,
+  MUTANEX_APP_SCREENSHOT: mutanexAsset.url,
+};
 
 export const Route = createFileRoute("/")({
   component: Portfolio,
