@@ -2,8 +2,18 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import maskedHero from "@/assets/harshit-masked.jpg";
 import harshitAsset from "@/assets/harshit-real.png.asset.json";
+import emailsviaAsset from "@/assets/emailsvia.png.asset.json";
+import pujapathsewaAsset from "@/assets/pujapathsewa.png.asset.json";
+import bubAiAsset from "@/assets/bub-ai.png.asset.json";
+import mutanexAsset from "@/assets/mutanex.png.asset.json";
 
 const realHero = harshitAsset.url;
+const BUILD_IMAGES: Record<string, string> = {
+  EMAILSVIA_SCREENSHOT: emailsviaAsset.url,
+  PUJAPATHSEVA_SCREENSHOT: pujapathsewaAsset.url,
+  BUB_AI_SCREENSHOT: bubAiAsset.url,
+  MUTANEX_APP_SCREENSHOT: mutanexAsset.url,
+};
 
 export const Route = createFileRoute("/")({
   component: Portfolio,
@@ -376,12 +386,12 @@ function Builds() {
           >
             {/* Image placeholder slot */}
             <div className="relative aspect-[16/10] overflow-hidden border-b border-border/60 bg-[oklch(0.16_0.008_285)]">
-              <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 p-6 text-center">
-                <span className="rounded-full border border-dashed border-border px-3 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-                  {b.placeholder}
-                </span>
-                <span className="text-xs text-muted-foreground/60">Drop screenshot here</span>
-              </div>
+              <img
+                src={BUILD_IMAGES[b.placeholder]}
+                alt={`${b.name} screenshot`}
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
               {/* Hover overlay with CTA */}
               <div className="absolute inset-0 flex items-center justify-center bg-background/80 opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100">
                 <span className="inline-flex items-center gap-2 rounded-full bg-[var(--signal)] px-5 py-2.5 text-sm font-medium text-primary-foreground transition-transform duration-300 group-hover:scale-100 scale-95">
