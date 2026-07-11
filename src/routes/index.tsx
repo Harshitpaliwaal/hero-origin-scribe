@@ -63,23 +63,39 @@ const MISSIONS = [
 const BUILDS = [
   {
     name: "EmailsVia",
-    tag: "SaaS · 2026",
-    desc: "Self-hosted cold-email outreach platform — campaign flows, monetization, AI reply classification, automated follow-ups.",
+    type: "Live Product" as const,
+    cta: "Visit Live Site →",
+    href: "https://www.emailsvia.com/",
+    subtitle: "Self-Hosted Cold-Email Outreach Platform (May 2026)",
+    desc: "Built and shipped a SaaS product from scratch — campaign flows, monetization, AI-driven reply classification, and automated follow-up infrastructure.",
+    placeholder: "EMAILSVIA_SCREENSHOT",
   },
   {
     name: "PujaPathSeva",
-    tag: "0→1 · 2025",
-    desc: "Temple booking platform. Defined vision & architecture, led 3-dev team to MVP in 4 weeks. +22% task completion, 20+ Figma prototypes.",
+    type: "Live Product" as const,
+    cta: "Visit Live Site →",
+    href: "https://www.pujapathsewa.com/",
+    subtitle: "Temple Booking Platform, 0→1 (July 2025)",
+    desc: "Defined product vision and architecture for a 0→1 booking platform; led a 3-developer team to MVP in 4 weeks; 22% improvement in task completion; 20+ Figma wireframes/prototypes.",
+    placeholder: "PUJAPATHSEVA_SCREENSHOT",
   },
   {
     name: "BUB AI",
-    tag: "Consumer · 2025",
-    desc: "Mental-health peer-support app. 15+ user interviews synthesized into 4 personas. Accessible, safety-first journeys.",
+    type: "Figma Prototype" as const,
+    cta: "View Prototype →",
+    href: "https://www.figma.com/design/KpXfGi2y5kTE2NliadprTr/BUB-NEW?node-id=319-343&p=f&t=dZrGKoFm8GhmFvtY-0",
+    subtitle: "Mental Health Peer-Support App (April 2025)",
+    desc: "Validated product-market fit through 15+ structured user interviews synthesized into 4 core personas; designed accessible, safety-focused user journeys and prototypes.",
+    placeholder: "BUB_AI_SCREENSHOT",
   },
   {
-    name: "Mutanex Mobile",
-    tag: "Health · 2025",
-    desc: "Owned requirements & UX across 8 screens — onboarding, forms, report upload, data viz. Achieved SUS 80+.",
+    name: "Mutanex Healthcare — Mobile App",
+    type: "Figma Prototype" as const,
+    cta: "View Prototype →",
+    href: "https://www.figma.com/design/CdxnyMPF6ZptrxL72HVTkA/Mutanex-app?node-id=164-3214&p=f&t=jfvK4WAju2mufY9n-0",
+    subtitle: "Feb 2025",
+    desc: "Owned requirements and UX across 8 screens (onboarding, multi-step forms, report upload, data viz); achieved SUS score of 80+ in usability testing.",
+    placeholder: "MUTANEX_APP_SCREENSHOT",
   },
 ];
 
@@ -345,27 +361,55 @@ function Missions() {
 
 function Builds() {
   return (
-    <Section id="builds" kicker="Chapter 04" title={<><span className="signal-text">Builds</span> — Selected Work</>}>
+    <Section id="builds" kicker="Chapter 04" title={<><span className="signal-text">Builds</span></>}>
+      <p className="mb-14 max-w-xl text-lg leading-relaxed text-muted-foreground">
+        Things I've shipped, 0→1.
+      </p>
       <div className="grid gap-6 md:grid-cols-2">
-        {BUILDS.map((b, i) => (
-          <article key={b.name} className="group relative overflow-hidden rounded-xl border border-border/60 bg-card/40 p-8 transition hover:border-[var(--signal)]/60">
-            {/* placeholder graphic – swap in real screenshots later */}
-            <div className="mb-6 aspect-[16/10] overflow-hidden rounded-lg border border-border/60"
-              style={{
-                backgroundImage: `radial-gradient(circle at 30% 30%, color-mix(in oklab, var(--signal) 40%, transparent), transparent 60%), linear-gradient(135deg, oklch(0.2 0.008 285), oklch(0.14 0.005 285))`,
-              }}
-              aria-label={`${b.name} preview placeholder`}
-            >
-              <div className="flex h-full w-full items-center justify-center">
-                <span className="display text-5xl text-white/10 group-hover:text-white/20 transition">{String(i + 1).padStart(2, "0")}</span>
+        {BUILDS.map((b) => (
+          <a
+            key={b.name}
+            href={b.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative flex flex-col overflow-hidden rounded-xl border border-border/60 bg-card/40 transition duration-300 hover:-translate-y-1 hover:border-[var(--signal)]/60 hover:shadow-[0_24px_60px_-24px_color-mix(in_oklab,var(--signal)_25%,transparent)]"
+          >
+            {/* Image placeholder slot */}
+            <div className="relative aspect-[16/10] overflow-hidden border-b border-border/60 bg-[oklch(0.16_0.008_285)]">
+              <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 p-6 text-center">
+                <span className="rounded-full border border-dashed border-border px-3 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                  {b.placeholder}
+                </span>
+                <span className="text-xs text-muted-foreground/60">Drop screenshot here</span>
+              </div>
+              {/* Hover overlay with CTA */}
+              <div className="absolute inset-0 flex items-center justify-center bg-background/80 opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100">
+                <span className="inline-flex items-center gap-2 rounded-full bg-[var(--signal)] px-5 py-2.5 text-sm font-medium text-primary-foreground transition-transform duration-300 group-hover:scale-100 scale-95">
+                  {b.cta}
+                </span>
               </div>
             </div>
-            <div className="flex items-baseline justify-between">
+
+            <div className="flex flex-1 flex-col p-6 md:p-8">
+              <div className="mb-4 flex items-center justify-between gap-4">
+                <span
+                  className={`rounded-full px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.15em] ${
+                    b.type === "Live Product"
+                      ? "bg-emerald-500/10 text-emerald-400 ring-1 ring-emerald-500/30"
+                      : "bg-[var(--signal)]/10 text-[var(--signal)] ring-1 ring-[var(--signal)]/30"
+                  }`}
+                >
+                  {b.type}
+                </span>
+              </div>
               <h3 className="display text-3xl">{b.name}</h3>
-              <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">{b.tag}</span>
+              <p className="mt-2 text-sm text-muted-foreground">{b.subtitle}</p>
+              <p className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">{b.desc}</p>
+              <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-[var(--signal)] transition-transform duration-300 group-hover:translate-x-1">
+                {b.cta}
+              </span>
             </div>
-            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{b.desc}</p>
-          </article>
+          </a>
         ))}
       </div>
     </Section>
