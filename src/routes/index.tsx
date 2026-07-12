@@ -421,7 +421,7 @@ function Builds() {
                       : "bg-[var(--signal)]/10 text-[var(--signal)] ring-1 ring-[var(--signal)]/30"
                   }`}
                 >
-                  {b.type}
+                  {b.type}{b.tag ? ` · ${b.tag}` : ""}
                 </span>
               </div>
               <h3 className="display text-3xl">{b.name}</h3>
