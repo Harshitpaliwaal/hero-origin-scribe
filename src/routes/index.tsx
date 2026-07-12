@@ -76,6 +76,7 @@ const BUILDS = [
   {
     name: "NOKTURN",
     type: "Live Product" as const,
+    tag: "E-Commerce",
     cta: "Visit Live Site →",
     href: "https://nokturn.lovable.app/",
     subtitle: "Dark-Glam Streetwear E-Commerce Brand (2026)",
