@@ -6,6 +6,7 @@ import emailsviaAsset from "@/assets/emailsvia.png.asset.json";
 import pujapathsewaAsset from "@/assets/pujapathsewa.png.asset.json";
 import bubAiAsset from "@/assets/bub-ai.png.asset.json";
 import mutanexAsset from "@/assets/mutanex.png.asset.json";
+import nokturnAsset from "@/assets/nokturn.png.asset.json";
 
 const realHero = harshitAsset.url;
 const BUILD_IMAGES: Record<string, string> = {
@@ -13,6 +14,7 @@ const BUILD_IMAGES: Record<string, string> = {
   PUJAPATHSEVA_SCREENSHOT: pujapathsewaAsset.url,
   BUB_AI_SCREENSHOT: bubAiAsset.url,
   MUTANEX_APP_SCREENSHOT: mutanexAsset.url,
+  NOKTURN_SCREENSHOT: nokturnAsset.url,
 };
 
 export const Route = createFileRoute("/")({
@@ -71,6 +73,16 @@ const MISSIONS = [
 ];
 
 const BUILDS = [
+  {
+    name: "NOKTURN",
+    type: "Live Product" as const,
+    tag: "E-Commerce",
+    cta: "Visit Live Site →",
+    href: "https://nokturn.lovable.app/",
+    subtitle: "Dark-Glam Streetwear E-Commerce Brand (2026)",
+    desc: "Designed and built a full-stack fashion e-commerce experience from scratch — brand identity, product catalog, cart and wishlist flows, and a cinematic dark-glam visual language across corsets, mesh, leather, and metallics. Balanced editorial storytelling (campaign film, manifesto, lookbook) with functional commerce UX, including quick-add, size selection, and category browsing.",
+    placeholder: "NOKTURN_SCREENSHOT",
+  },
   {
     name: "EmailsVia",
     type: "Live Product" as const,
@@ -409,7 +421,7 @@ function Builds() {
                       : "bg-[var(--signal)]/10 text-[var(--signal)] ring-1 ring-[var(--signal)]/30"
                   }`}
                 >
-                  {b.type}
+                  {b.type}{b.tag ? ` · ${b.tag}` : ""}
                 </span>
               </div>
               <h3 className="display text-3xl">{b.name}</h3>
