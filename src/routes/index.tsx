@@ -309,7 +309,6 @@ function Origin() {
           {[
             { k: "Institution", v: "IIT Kharagpur" },
             { k: "Discipline", v: "Economics" },
-            { k: "CGPA", v: "8.29 / 10" },
             { k: "Class of", v: "2026" },
           ].map((r) => (
             <div key={r.k} className="flex items-baseline justify-between border-b border-border/60 py-3">
