@@ -74,6 +74,15 @@ const MISSIONS = [
 
 const BUILDS = [
   {
+    name: "NOKTURN",
+    type: "Live Product" as const,
+    cta: "Visit Live Site →",
+    href: "https://nokturn.lovable.app/",
+    subtitle: "Dark-Glam Streetwear E-Commerce Brand (2026)",
+    desc: "Designed and built a full-stack fashion e-commerce experience from scratch — brand identity, product catalog, cart and wishlist flows, and a cinematic dark-glam visual language across corsets, mesh, leather, and metallics. Balanced editorial storytelling (campaign film, manifesto, lookbook) with functional commerce UX, including quick-add, size selection, and category browsing.",
+    placeholder: "NOKTURN_SCREENSHOT",
+  },
+  {
     name: "EmailsVia",
     type: "Live Product" as const,
     cta: "Visit Live Site →",
