@@ -354,7 +354,7 @@ function Missions() {
         <div aria-hidden className="absolute left-4 top-0 h-full w-px bg-gradient-to-b from-[var(--signal)] via-border to-transparent md:left-1/2" />
         <div className="space-y-12">
           {MISSIONS.map((m, idx) => (
-            <div key={m.company} className={`relative grid gap-6 md:grid-cols-2 md:gap-16 ${idx % 2 ? "md:[&>*:first-child]:col-start-2" : ""}`}>
+            <div key={m.company} className={`relative grid gap-6 md:grid-cols-2 md:gap-16 ${idx % 2 ? "md:[&>*:nth-child(2)]:col-start-2" : ""}`}>
               <div className="absolute left-4 top-2 -translate-x-1/2 md:left-1/2">
                 <div className="relative h-3 w-3 rounded-full bg-[var(--signal)]">
                   <span className="absolute inset-0 rounded-full bg-[var(--signal)] opacity-40 pulse-signal" style={{ transform: "scale(2.5)" }} />
