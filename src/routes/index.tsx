@@ -353,27 +353,30 @@ function Missions() {
       <div className="relative">
         <div aria-hidden className="absolute left-4 top-0 h-full w-px bg-gradient-to-b from-[var(--signal)] via-border to-transparent md:left-1/2" />
         <div className="space-y-12">
-          {MISSIONS.map((m, idx) => (
-            <div key={m.company} className={`relative grid gap-6 md:grid-cols-2 md:gap-16 ${idx % 2 ? "md:[&>*:nth-child(2)]:col-start-2" : ""}`}>
-              <div className="absolute left-4 top-2 -translate-x-1/2 md:left-1/2">
-                <div className="relative h-3 w-3 rounded-full bg-[var(--signal)]">
-                  <span className="absolute inset-0 rounded-full bg-[var(--signal)] opacity-40 pulse-signal" style={{ transform: "scale(2.5)" }} />
+          {MISSIONS.map((m, idx) => {
+            const reversed = idx % 2 === 1;
+            return (
+              <div key={m.company} className="relative grid gap-6 md:grid-cols-2 md:gap-16">
+                <div className="absolute left-4 top-2 -translate-x-1/2 md:left-1/2">
+                  <div className="relative h-3 w-3 rounded-full bg-[var(--signal)]">
+                    <span className="absolute inset-0 rounded-full bg-[var(--signal)] opacity-40 pulse-signal" style={{ transform: "scale(2.5)" }} />
+                  </div>
+                </div>
+                <div className={`pl-10 md:pl-0 ${reversed ? "md:col-start-2 md:pl-16" : "md:col-start-1 md:pr-16 md:text-right"}`}>
+                  <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-[var(--signal)]">{m.period}</div>
+                  <h3 className="display mt-2 text-4xl">{m.company}</h3>
+                  <div className="mt-1 text-sm text-muted-foreground">{m.role}</div>
+                </div>
+                <div className={`pl-10 md:pl-0 ${reversed ? "md:col-start-1 md:pr-16 md:text-right" : "md:col-start-2 md:pl-16"}`}>
+                  <ul className="space-y-3 text-muted-foreground">
+                    {m.bullets.map((b) => (
+                      <li key={b} className="text-sm leading-relaxed">{b}</li>
+                    ))}
+                  </ul>
                 </div>
               </div>
-              <div className={`pl-10 md:pl-0 ${idx % 2 ? "md:pl-16" : "md:pr-16 md:text-right"}`}>
-                <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-[var(--signal)]">{m.period}</div>
-                <h3 className="display mt-2 text-4xl">{m.company}</h3>
-                <div className="mt-1 text-sm text-muted-foreground">{m.role}</div>
-              </div>
-              <div className={`pl-10 md:pl-0 ${idx % 2 ? "md:pr-16 md:text-right" : "md:pl-16"}`}>
-                <ul className="space-y-3 text-muted-foreground">
-                  {m.bullets.map((b) => (
-                    <li key={b} className="text-sm leading-relaxed">{b}</li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </Section>
