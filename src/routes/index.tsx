@@ -362,12 +362,12 @@ function Missions() {
                     <span className="absolute inset-0 rounded-full bg-[var(--signal)] opacity-40 pulse-signal" style={{ transform: "scale(2.5)" }} />
                   </div>
                 </div>
-                <div className={`pl-10 md:pl-0 ${reversed ? "md:col-start-2 md:pl-16" : "md:col-start-1 md:pr-16 md:text-right"}`}>
+                <div className={`pl-10 md:pl-0 md:row-start-1 ${reversed ? "md:col-start-2 md:pl-16" : "md:col-start-1 md:pr-16 md:text-right"}`}>
                   <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-[var(--signal)]">{m.period}</div>
                   <h3 className="display mt-2 text-4xl">{m.company}</h3>
                   <div className="mt-1 text-sm text-muted-foreground">{m.role}</div>
                 </div>
-                <div className={`pl-10 md:pl-0 ${reversed ? "md:col-start-1 md:pr-16 md:text-right" : "md:col-start-2 md:pl-16"}`}>
+                <div className={`pl-10 md:pl-0 md:row-start-1 ${reversed ? "md:col-start-1 md:pr-16 md:text-right" : "md:col-start-2 md:pl-16"}`}>
                   <ul className="space-y-3 text-muted-foreground">
                     {m.bullets.map((b) => (
                       <li key={b} className="text-sm leading-relaxed">{b}</li>
