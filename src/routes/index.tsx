@@ -1,20 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import maskedHero from "@/assets/harshit-masked.jpg";
-import harshitAsset from "@/assets/harshit-real.png.asset.json";
-import emailsviaAsset from "@/assets/emailsvia.png.asset.json";
-import pujapathsewaAsset from "@/assets/pujapathsewa.png.asset.json";
-import bubAiAsset from "@/assets/bub-ai.png.asset.json";
-import mutanexAsset from "@/assets/mutanex.png.asset.json";
-import nokturnAsset from "@/assets/nokturn.png.asset.json";
 
-const realHero = harshitAsset.url;
+const realHero = "/assets/harshit-real.png";
 const BUILD_IMAGES: Record<string, string> = {
-  EMAILSVIA_SCREENSHOT: emailsviaAsset.url,
-  PUJAPATHSEVA_SCREENSHOT: pujapathsewaAsset.url,
-  BUB_AI_SCREENSHOT: bubAiAsset.url,
-  MUTANEX_APP_SCREENSHOT: mutanexAsset.url,
-  NOKTURN_SCREENSHOT: nokturnAsset.url,
+  EMAILSVIA_SCREENSHOT: "/assets/emailsvia.png",
+  PUJAPATHSEVA_SCREENSHOT: "/assets/pujapathseva.png",
+  BUB_AI_SCREENSHOT: "/assets/bub-ai.png",
+  MUTANEX_APP_SCREENSHOT: "/assets/mutanex.png",
+  NOKTURN_SCREENSHOT: "/assets/nokturn.png",
 };
 
 export const Route = createFileRoute("/")({
@@ -404,7 +398,7 @@ function Builds() {
                 src={BUILD_IMAGES[b.placeholder]}
                 alt={`${b.name} screenshot`}
                 loading="lazy"
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                className="absolute inset-0 h-full w-full object-contain transition-transform duration-500 group-hover:scale-105"
               />
               {/* Hover overlay with CTA */}
               <div className="absolute inset-0 flex items-center justify-center bg-background/80 opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100">
