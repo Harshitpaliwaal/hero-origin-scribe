@@ -78,7 +78,7 @@ const BUILDS = [
     type: "Live Product" as const,
     tag: "E-Commerce",
     cta: "Visit Live Site →",
-    href: "https://nokturn.lovable.app/",
+    href: "https://nokturn69.vercel.app/",
     subtitle: "Dark-Glam Streetwear E-Commerce Brand (2026)",
     desc: "Designed and built a full-stack fashion e-commerce experience from scratch — brand identity, product catalog, cart and wishlist flows, and a cinematic dark-glam visual language across corsets, mesh, leather, and metallics. Balanced editorial storytelling (campaign film, manifesto, lookbook) with functional commerce UX, including quick-add, size selection, and category browsing.",
     placeholder: "NOKTURN_SCREENSHOT",
@@ -479,7 +479,7 @@ function Signal() {
               <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">Phone</span>
               <span className="text-lg group-hover:text-[var(--signal)] transition">+91 74140 35009</span>
             </a>
-            <a href="#" className="group flex items-center justify-between border-b border-border/60 py-4 hover:border-[var(--signal)]" aria-label="LinkedIn (add URL)">
+            <a href="https://www.linkedin.com/in/harshit-paliwal-/" target="_blank" rel="noopener noreferrer" className="group flex items-center justify-between border-b border-border/60 py-4 hover:border-[var(--signal)]" aria-label="LinkedIn">
               <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">LinkedIn</span>
               <span className="text-lg group-hover:text-[var(--signal)] transition">/in/harshit-paliwal →</span>
             </a>
